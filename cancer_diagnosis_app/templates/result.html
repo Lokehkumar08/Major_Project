@@ -1,0 +1,56 @@
+<!-- File: templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result - Cancer Diagnosis</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Cancer Diagnosis Result</h1>
+
+      <!-- Image Preview -->
+      <div id="preview-container">
+        <img id="uploaded-image" src="{{ image_path }}" alt="Uploaded Image" />
+      </div>
+
+      <!-- Prediction Result -->
+      <div id="result-container">
+        <h2>Prediction Result</h2>
+        <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+        <p>
+          <strong>Confidence Score:</strong> <span id="confidence-text"></span>%
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <button onclick="window.location.href='/'">Upload Another Image</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fix: Wrap Jinja variable in JSON.stringify() to prevent syntax errors
+        let confidenceScore =
+          JSON.parse("{{ confidence | default(0) | float | tojson }}") * 100;
+
+        // Update Progress Bar
+        let progressBar = document.getElementById("progress-bar");
+        progressBar.style.width = confidenceScore + "%";
+        progressBar.innerText = confidenceScore.toFixed(2) + "%";
+
+        // Update Confidence Text
+        document.getElementById("confidence-text").innerText =
+          confidenceScore.toFixed(2);
+      });
+    </script>
+  </body>
+</html>

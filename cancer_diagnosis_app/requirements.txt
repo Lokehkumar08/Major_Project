@@ -1,0 +1,7 @@
+Flask
+tensorflow
+tensorflow-hub
+numpy
+matplotlib
+seaborn
+scikit-learn

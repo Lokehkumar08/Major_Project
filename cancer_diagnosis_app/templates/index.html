@@ -1,0 +1,42 @@
+<!-- File: templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cancer Diagnosis Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enhancing Cancer Diagnosis</h1>
+      <h2>Advanced Vision Transformers & Hybrid Deep Learning</h2>
+
+      <form
+        id="upload-form"
+        action="/predict"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="file" class="custom-file-upload">
+          Choose Image
+          <input type="file" id="file" name="file" accept="image/*" required />
+        </label>
+
+        <img
+          id="uploaded-image-preview"
+          src="#"
+          alt="Uploaded Image Preview"
+          style="display: none"
+        />
+
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

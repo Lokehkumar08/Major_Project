@@ -1,0 +1,63 @@
+/* File: static/css/styles.css */
+
+/* Reset default styles */
+body,
+h1,
+h2,
+p,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Center content */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* Image preview */
+#preview-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Progress bar container */
+.progress-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 20px;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  transition: width 0.5s ease-in-out;
+  min-width: 5%; /* Ensures a small visible bar even for very low confidence values */
+}
+
+/* Button styling */
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
